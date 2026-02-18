@@ -218,6 +218,24 @@
       color: var(--muted);
     }
 
+    /* about inline (you were using these classes but didn’t have CSS) */
+    .about-inline p{ margin: 0 0 10px; color: rgba(255,255,255,.86); }
+    .facts-inline{
+      margin-top: 12px;
+      border-radius: calc(var(--radius) - 6px);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      padding: 14px;
+    }
+    .facts-inline ul{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      display:grid;
+      gap: 7px;
+    }
+
     /* section titles */
     .section-title{
       display:flex;
@@ -235,32 +253,6 @@
       margin: 0;
       color: var(--muted);
       font-size: 13px;
-    }
-
-    /* about */
-    .about{
-      padding: 22px;
-    }
-    .about-grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 16px;
-      align-items:start;
-    }
-    .about p{ margin: 0 0 10px; color: rgba(255,255,255,.86); }
-    .facts{
-      border-radius: calc(var(--radius) - 6px);
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
-      padding: 14px;
-    }
-    .facts ul{
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-      font-size: 14px;
-      display:grid;
-      gap: 7px;
     }
 
     /* videos */
@@ -295,9 +287,7 @@
     }
 
     /* slider */
-    .slider{
-      padding: 14px;
-    }
+    .slider{ padding: 14px; }
     .slider-frame{
       position: relative;
       border-radius: calc(var(--radius) - 8px);
@@ -309,12 +299,15 @@
     .slides{
       display:flex;
       height:100%;
+      width: 100%;
       transform: translateX(0%);
       transition: transform .35s ease;
+      will-change: transform;
     }
     .slide{
       min-width: 100%;
       height:100%;
+      flex: 0 0 100%;
     }
     .slide img{
       width:100%;
@@ -350,6 +343,8 @@
       gap: 8px;
       justify-content:center;
       flex: 1;
+      flex-wrap: wrap;
+      padding: 2px 0;
     }
     .dot{
       width: 10px; height: 10px;
@@ -380,7 +375,6 @@
     }
     @media (max-width: 760px){
       .video-grid{ grid-template-columns: 1fr; }
-      .about-grid{ grid-template-columns: 1fr; }
       .hero-left{ padding: 20px; }
       .hero-right{ grid-template-columns: 1fr; }
       .headshot{ aspect-ratio: 4 / 5; }
@@ -406,78 +400,71 @@
     </div>
   </div>
 
-  <!-- HERO -->
- <!-- HERO + ABOUT COMBINED -->
-<header class="hero" id="about">
-  <div class="wrap">
-    <div class="card hero-grid">
+  <!-- HERO + ABOUT COMBINED -->
+  <header class="hero" id="about">
+    <div class="wrap">
+      <div class="card hero-grid">
 
-      <!-- LEFT SIDE (Intro + About stacked) -->
-      <div class="hero-left">
+        <!-- LEFT SIDE -->
+        <div class="hero-left">
+          <div class="kicker"><span></span> Actor • Performer • Singer</div>
+          <h1>Kelsey Harrington</h1>
 
-        <div class="kicker"><span></span> Actor • Performer • Singer</div>
-        <h1>Kelsey Harrington</h1>
+          <p class="subtitle">
+            A short, punchy intro that feels professional: credits, vibe, or specialties.
+          </p>
 
-        <p class="subtitle">
-          A short, punchy intro that feels professional: credits, vibe, or specialties.
-        </p>
+          <div class="cta-row">
+            <a class="btn primary" href="#videos">Watch Reel</a>
+            <a class="btn" href="#photos">See Photos</a>
+            <a class="btn" href="mailto:agent@example.com">Contact</a>
+          </div>
 
-        <div class="cta-row">
-          <a class="btn primary" href="#videos">Watch Reel</a>
-          <a class="btn" href="#photos">See Photos</a>
-          <a class="btn" href="mailto:agent@example.com">Contact</a>
+          <div style="height:1px;background:rgba(255,255,255,.12);margin:28px 0;"></div>
+
+          <div class="about-inline">
+            <h2 style="margin:0 0 10px;font-size:20px;">About</h2>
+
+            <p>
+              Write a concise bio here. Highlight a couple of credits, training,
+              and what makes them stand out (comedy timing, singing, accents, etc.).
+            </p>
+
+            <p>
+              Keep it short and punchy. Casting directors skim.
+            </p>
+
+            <div class="facts-inline">
+              <ul>
+                <li><strong>Representation:</strong> Agency / Manager</li>
+                <li><strong>Height:</strong> 4'8"</li>
+                <li><strong>Special Skills:</strong> Piano, Soccer, Improv</li>
+                <li><strong>Based in:</strong> Los Angeles</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
-        <!-- Divider -->
-        <div style="height:1px;background:rgba(255,255,255,.12);margin:28px 0;"></div>
+        <!-- RIGHT SIDE -->
+        <div class="hero-right">
+          <div class="headshot">
+            <img src="images/kelseyheadshot.png" alt="Headshot" />
+          </div>
 
-        <!-- ABOUT CONTENT -->
-        <div class="about-inline">
-          <h2 style="margin:0 0 10px;font-size:20px;">About</h2>
-
-          <p>
-            Write a concise bio here. Highlight a couple of credits, training,
-            and what makes them stand out (comedy timing, singing, accents, etc.).
-          </p>
-
-          <p>
-            Keep it short and punchy. Casting directors skim.
-          </p>
-
-          <div class="facts-inline">
-            <ul>
-              <li><strong>Representation:</strong> Agency / Manager</li>
-              <li><strong>Height:</strong> 4'8"</li>
-              <li><strong>Special Skills:</strong> Piano, Soccer, Improv</li>
-              <li><strong>Based in:</strong> Los Angeles</li>
-            </ul>
+          <div class="mini">
+            <h3>Quick Info</h3>
+            <p>
+              SAG-AFTRA Eligible<br />
+              Los Angeles Local Hire
+            </p>
           </div>
         </div>
 
       </div>
-
-      <!-- RIGHT SIDE (Headshot + mini card) -->
-      <div class="hero-right">
-
-        <div class="headshot">
-          <img src="images/kelseyheadshot.png" alt="Headshot" />
-        </div>
-
-        <div class="mini">
-          <h3>Quick Info</h3>
-          <p>
-            SAG-AFTRA Eligible<br />
-            Los Angeles Local Hire
-          </p>
-        </div>
-
-      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-
-   <!-- VIDEOS -->
+  <!-- VIDEOS -->
   <section class="section" id="videos">
     <div class="wrap">
       <div class="section-title">
@@ -488,8 +475,7 @@
       <div class="video-grid">
         <div class="card video">
           <div class="embed">
-            <!-- Replace the src with your YouTube embed URL -->
-             <iframe
+            <iframe
               src="https://www.youtube.com/embed/yr78vN_SUn4?si=4iAmmA1jf2IDwPEm"
               title="YouTube video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -509,7 +495,7 @@
           <div class="caption">Descendants - Jane (2025)</div>
         </div>
 
- <div class="card video">
+        <div class="card video">
           <div class="embed">
             <iframe
               src="https://www.youtube.com/embed/dQw4w9WgXcQ"
@@ -520,10 +506,9 @@
           <div class="caption">Beauty and the Beast - Mrs. Potts (2025)</div>
         </div>
 
-
- <div class="card video">
+        <div class="card video">
           <div class="embed">
-          <iframe
+            <iframe
               src="https://www.youtube.com/embed/6PCbG1GVlxs?si=XhVGN1lNIOpeshaR"
               title="YouTube video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -532,7 +517,6 @@
           <div class="caption">Lion King - Young Nala (2024)</div>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -547,48 +531,29 @@
       <div class="card slider">
         <div class="slider-frame" aria-label="Photo slider">
           <div class="slides" id="slides">
-            <!-- Replace with your own images -->
             <div class="slide"><img src="images/seuss1.jpg" alt="Photo 1"></div>
             <div class="slide"><img src="images/seuss2.jpg" alt="Photo 2"></div>
             <div class="slide"><img src="images/seuss3.jpg" alt="Photo 3"></div>
             <div class="slide"><img src="images/batb1.jpg" alt="Photo 4"></div>
-	    <div class="slide"><img src="images/batb2.jpg" alt="Photo 5"></div>
-	    <div class="slide"><img src="images/batb3.jpg" alt="Photo 6"></div>
-	    <div class="slide"><img src="images/batb4.jpg" alt="Photo 7"></div>
-	    <div class="slide"><img src="images/batb5.jpg" alt="Photo 8"></div>
-	    <div class="slide"><img src="images/batb6.jpg" alt="Photo 9"></div>
-	    <div class="slide"><img src="images/descendants1.jpg" alt="Photo 10"></div>
-	    <div class="slide"><img src="images/descendants2.jpg" alt="Photo 11"></div>
-	    <div class="slide"><img src="images/descendants3.jpg" alt="Photo 12"></div>
-	    <div class="slide"><img src="images/lionking1.jpg" alt="Photo 13"></div>
-	    <div class="slide"><img src="images/lionking2.jpg" alt="Photo 14"></div>
-	    <div class="slide"><img src="images/lionking3.jpg" alt="Photo 15"></div>
-
-
+            <div class="slide"><img src="images/batb2.jpg" alt="Photo 5"></div>
+            <div class="slide"><img src="images/batb3.jpg" alt="Photo 6"></div>
+            <div class="slide"><img src="images/batb4.jpg" alt="Photo 7"></div>
+            <div class="slide"><img src="images/batb5.jpg" alt="Photo 8"></div>
+            <div class="slide"><img src="images/batb6.jpg" alt="Photo 9"></div>
+            <div class="slide"><img src="images/descendants1.jpg" alt="Photo 10"></div>
+            <div class="slide"><img src="images/descendants2.jpg" alt="Photo 11"></div>
+            <div class="slide"><img src="images/descendants3.jpg" alt="Photo 12"></div>
+            <div class="slide"><img src="images/lionking1.jpg" alt="Photo 13"></div>
+            <div class="slide"><img src="images/lionking2.jpg" alt="Photo 14"></div>
+            <div class="slide"><img src="images/lionking3.jpg" alt="Photo 15"></div>
           </div>
         </div>
 
         <div class="slider-controls">
           <button class="icon-btn" id="prev" aria-label="Previous photo">‹</button>
 
-          <div class="dots" id="dots" aria-label="Slide dots">
-           <button class="dot active" data-i="0"></button>
-<button class="dot" data-i="1"></button>
-<button class="dot" data-i="2"></button>
-<button class="dot" data-i="3"></button>
-<button class="dot" data-i="4"></button>
-<button class="dot" data-i="5"></button>
-<button class="dot" data-i="6"></button>
-<button class="dot" data-i="7"></button>
-<button class="dot" data-i="8"></button>
-<button class="dot" data-i="9"></button>
-<button class="dot" data-i="10"></button>
-<button class="dot" data-i="11"></button>
-<button class="dot" data-i="12"></button>
-<button class="dot" data-i="13"></button>
-<button class="dot" data-i="14"></button>
-            
-          </div>
+          <!-- Leave dots empty; JS will populate -->
+          <div class="dots" id="dots" aria-label="Slide dots"></div>
 
           <button class="icon-btn" id="next" aria-label="Next photo">›</button>
         </div>
@@ -604,7 +569,7 @@
         <p class="hint">Keep it simple.</p>
       </div>
 
-      <div class="card about">
+      <div class="card about" style="padding:22px;">
         <p style="margin:0;color:rgba(255,255,255,.86);">
           For bookings and inquiries: <a class="pill" href="mailto:agent@example.com">agent@example.com</a>
           &nbsp; <span style="color:rgba(255,255,255,.45);">•</span> &nbsp;
@@ -620,49 +585,49 @@
   </section>
 
   <script>
-  // --- slider (robust) ---
-  const slidesEl = document.getElementById("slides");
-  const dotsEl   = document.getElementById("dots");
-  const prevBtn  = document.getElementById("prev");
-  const nextBtn  = document.getElementById("next");
+    // --- slider (robust) ---
+    const slidesEl = document.getElementById("slides");
+    const dotsEl   = document.getElementById("dots");
+    const prevBtn  = document.getElementById("prev");
+    const nextBtn  = document.getElementById("next");
 
-  if (slidesEl && dotsEl && prevBtn && nextBtn) {
-    const slides = Array.from(slidesEl.querySelectorAll(".slide"));
-    let i = 0;
+    if (slidesEl && dotsEl && prevBtn && nextBtn) {
+      const slides = Array.from(slidesEl.querySelectorAll(".slide"));
+      let i = 0;
 
-    // Build dots automatically from slides
-    dotsEl.innerHTML = slides.map((_, idx) =>
-      `<button class="dot${idx === 0 ? " active" : ""}" data-i="${idx}" aria-label="Go to slide ${idx + 1}"></button>`
-    ).join("");
+      // Build dots automatically from slides
+      dotsEl.innerHTML = slides.map((_, idx) =>
+        `<button class="dot${idx === 0 ? " active" : ""}" data-i="${idx}" aria-label="Go to slide ${idx + 1}"></button>`
+      ).join("");
 
-    const dots = Array.from(dotsEl.querySelectorAll(".dot"));
+      const dots = Array.from(dotsEl.querySelectorAll(".dot"));
 
-    function goTo(idx){
-      const n = slides.length;
-      i = (idx + n) % n;
-      slidesEl.style.transform = `translateX(${-100 * i}%)`;
-      dots.forEach((d, di) => d.classList.toggle("active", di === i));
+      function goTo(idx){
+        const n = slides.length;
+        i = (idx + n) % n;
+        slidesEl.style.transform = `translateX(${-100 * i}%)`;
+        dots.forEach((d, di) => d.classList.toggle("active", di === i));
+      }
+
+      prevBtn.addEventListener("click", () => goTo(i - 1));
+      nextBtn.addEventListener("click", () => goTo(i + 1));
+
+      dotsEl.addEventListener("click", (e) => {
+        const btn = e.target.closest(".dot");
+        if (!btn) return;
+        goTo(Number(btn.dataset.i));
+      });
+
+      // Optional: keyboard support
+      window.addEventListener("keydown", (e) => {
+        if(e.key === "ArrowLeft") goTo(i - 1);
+        if(e.key === "ArrowRight") goTo(i + 1);
+      });
     }
 
-    prevBtn.addEventListener("click", () => goTo(i - 1));
-    nextBtn.addEventListener("click", () => goTo(i + 1));
-    dotsEl.addEventListener("click", (e) => {
-      const btn = e.target.closest(".dot");
-      if (!btn) return;
-      goTo(Number(btn.dataset.i));
-    });
-
-    // Optional: keyboard support
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowLeft") goTo(i - 1);
-      if (e.key === "ArrowRight") goTo(i + 1);
-    });
-  }
-
-  // footer year
-  const yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-</script>
-
+    // footer year
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
