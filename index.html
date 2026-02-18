@@ -620,34 +620,49 @@
   </section>
 
   <script>
-    // --- slider ---
-    const slidesEl = document.getElementById("slides");
-    const dotsEl = document.getElementById("dots");
-    const dots = Array.from(dotsEl.querySelectorAll(".dot"));
-    const prevBtn = document.getElementById("prev");
-    const nextBtn = document.getElementById("next");
+  // --- slider (robust) ---
+  const slidesEl = document.getElementById("slides");
+  const dotsEl   = document.getElementById("dots");
+  const prevBtn  = document.getElementById("prev");
+  const nextBtn  = document.getElementById("next");
 
+  if (slidesEl && dotsEl && prevBtn && nextBtn) {
+    const slides = Array.from(slidesEl.querySelectorAll(".slide"));
     let i = 0;
 
+    // Build dots automatically from slides
+    dotsEl.innerHTML = slides.map((_, idx) =>
+      `<button class="dot${idx === 0 ? " active" : ""}" data-i="${idx}" aria-label="Go to slide ${idx + 1}"></button>`
+    ).join("");
+
+    const dots = Array.from(dotsEl.querySelectorAll(".dot"));
+
     function goTo(idx){
-      i = (idx + dots.length) % dots.length;
+      const n = slides.length;
+      i = (idx + n) % n;
       slidesEl.style.transform = `translateX(${-100 * i}%)`;
       dots.forEach((d, di) => d.classList.toggle("active", di === i));
     }
 
     prevBtn.addEventListener("click", () => goTo(i - 1));
     nextBtn.addEventListener("click", () => goTo(i + 1));
-
-    dots.forEach(d => d.addEventListener("click", () => goTo(+d.dataset.i)));
+    dotsEl.addEventListener("click", (e) => {
+      const btn = e.target.closest(".dot");
+      if (!btn) return;
+      goTo(Number(btn.dataset.i));
+    });
 
     // Optional: keyboard support
     window.addEventListener("keydown", (e) => {
-      if(e.key === "ArrowLeft") goTo(i - 1);
-      if(e.key === "ArrowRight") goTo(i + 1);
+      if (e.key === "ArrowLeft") goTo(i - 1);
+      if (e.key === "ArrowRight") goTo(i + 1);
     });
+  }
 
-    // footer year
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  // footer year
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
