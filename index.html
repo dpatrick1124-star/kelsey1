@@ -5,15 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kelsey Harrington — Portfolio</title>
 
+  <!-- Cute script font for the NAME only -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
   <style>
     :root{
       /* ===== PINK + WHITE THEME ===== */
       --bg: #fff7fb;                 /* soft blush */
-      --panel: rgba(255,255,255,.92);/* white cards */
-      --panel2: rgba(255,255,255,.75);
-      --text: #1f1720;               /* deep plum-black for readability */
+      --panel: rgba(255,255,255,.90);/* white cards */
+      --panel2: rgba(255,255,255,.70);
+      --text: #1f1720;               /* deep plum-black */
       --muted: rgba(31,23,32,.66);
-      --border: rgba(236,72,153,.22);/* pink border tint */
+      --border: rgba(236,72,153,.22);
       --shadow: 0 18px 55px rgba(17, 12, 18, .14);
 
       --accent: #ec4899;             /* hot pink */
@@ -35,6 +40,29 @@
         radial-gradient(900px 620px at 40% 100%, rgba(236,72,153,.10), transparent 60%),
         var(--bg);
       line-height: 1.5;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* ✨ Subtle sparkle overlay */
+    body::before{
+      content:"";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .22;
+      mix-blend-mode: multiply;
+      background-image:
+        radial-gradient(circle at 12% 18%, rgba(236,72,153,.22) 0 1px, transparent 2px),
+        radial-gradient(circle at 32% 8%, rgba(236,72,153,.18) 0 1px, transparent 2px),
+        radial-gradient(circle at 78% 12%, rgba(251,113,133,.18) 0 1px, transparent 2px),
+        radial-gradient(circle at 88% 28%, rgba(236,72,153,.16) 0 1px, transparent 2px),
+        radial-gradient(circle at 15% 68%, rgba(251,113,133,.16) 0 1px, transparent 2px),
+        radial-gradient(circle at 46% 74%, rgba(236,72,153,.14) 0 1px, transparent 2px),
+        radial-gradient(circle at 72% 82%, rgba(251,113,133,.14) 0 1px, transparent 2px),
+        radial-gradient(circle at 92% 70%, rgba(236,72,153,.14) 0 1px, transparent 2px);
+      background-size: 320px 320px;
+      filter: blur(.2px);
     }
 
     a{ color: inherit; text-decoration: none; }
@@ -44,7 +72,7 @@
     .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 18px; }
     .section{ padding: 54px 0; }
     .card{
-      background: var(--panel);
+      background: linear-gradient(180deg, rgba(255,255,255,.94), rgba(255,255,255,.86));
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -123,8 +151,8 @@
       position:absolute;
       inset:-2px;
       background:
-        radial-gradient(820px 260px at 0% 0%, rgba(236,72,153,.18), transparent 60%),
-        radial-gradient(640px 240px at 90% 10%, rgba(251,113,133,.14), transparent 58%);
+        radial-gradient(820px 260px at 0% 0%, rgba(236,72,153,.20), transparent 60%),
+        radial-gradient(640px 240px at 90% 10%, rgba(251,113,133,.16), transparent 58%);
       pointer-events:none;
     }
     .hero-left > *{ position:relative; }
@@ -147,12 +175,19 @@
       background: var(--accent);
       opacity: .95;
     }
+
+    /* 💗 Script name */
     h1{
       margin: 0 0 10px;
-      font-size: clamp(30px, 4vw, 44px);
-      line-height: 1.08;
-      letter-spacing: -0.02em;
+      font-family: "Pacifico", cursive;
+      font-weight: 400;
+      font-size: clamp(34px, 4.6vw, 54px);
+      line-height: 1.05;
+      letter-spacing: 0;
+      color: rgba(31,23,32,.94);
+      text-shadow: 0 10px 30px rgba(236,72,153,.10);
     }
+
     .subtitle{
       margin: 0 0 18px;
       color: var(--muted);
@@ -608,7 +643,6 @@
       const slides = Array.from(slidesEl.querySelectorAll(".slide"));
       let i = 0;
 
-      // Build dots automatically from slides
       dotsEl.innerHTML = slides.map((_, idx) =>
         `<button class="dot${idx === 0 ? " active" : ""}" data-i="${idx}" aria-label="Go to slide ${idx + 1}"></button>`
       ).join("");
@@ -637,7 +671,6 @@
       });
     }
 
-    // footer year
     const yearEl = document.getElementById("year");
     if (yearEl) yearEl.textContent = new Date().getFullYear();
   </script>
