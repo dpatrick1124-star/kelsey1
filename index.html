@@ -7,16 +7,17 @@
 
   <style>
     :root{
-      --bg: #0b0f19;
-      --panel: rgba(255,255,255,.06);
-      --panel2: rgba(255,255,255,.10);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.70);
-      --border: rgba(255,255,255,.14);
-      --shadow: 0 18px 55px rgba(0,0,0,.45);
+      /* ===== PINK + WHITE THEME ===== */
+      --bg: #fff7fb;                 /* soft blush */
+      --panel: rgba(255,255,255,.92);/* white cards */
+      --panel2: rgba(255,255,255,.75);
+      --text: #1f1720;               /* deep plum-black for readability */
+      --muted: rgba(31,23,32,.66);
+      --border: rgba(236,72,153,.22);/* pink border tint */
+      --shadow: 0 18px 55px rgba(17, 12, 18, .14);
 
-      --accent: #7c3aed;   /* purple */
-      --accent2:#22c55e;   /* green */
+      --accent: #ec4899;             /* hot pink */
+      --accent2:#fb7185;             /* coral-pink */
       --radius: 18px;
 
       --max: 1080px;
@@ -29,9 +30,9 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(1200px 600px at 20% 0%, rgba(124,58,237,.35), transparent 60%),
-        radial-gradient(900px 500px at 90% 10%, rgba(34,197,94,.25), transparent 55%),
-        radial-gradient(900px 600px at 40% 100%, rgba(59,130,246,.18), transparent 60%),
+        radial-gradient(1100px 520px at 15% 0%, rgba(236,72,153,.18), transparent 60%),
+        radial-gradient(900px 520px at 90% 10%, rgba(251,113,133,.16), transparent 55%),
+        radial-gradient(900px 620px at 40% 100%, rgba(236,72,153,.10), transparent 60%),
         var(--bg);
       line-height: 1.5;
     }
@@ -56,9 +57,9 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: linear-gradient(to bottom, rgba(11,15,25,.78), rgba(11,15,25,.35));
+      background: linear-gradient(to bottom, rgba(255,247,251,.92), rgba(255,247,251,.72));
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,.08);
+      border-bottom: 1px solid rgba(236,72,153,.18);
     }
     .nav-inner{
       display:flex;
@@ -71,13 +72,13 @@
       display:flex;
       align-items:center;
       gap: 10px;
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: .02em;
     }
     .brand-dot{
       width: 10px; height: 10px; border-radius: 999px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 4px rgba(255,255,255,.06);
+      box-shadow: 0 0 0 5px rgba(236,72,153,.10);
     }
     .nav-links{
       display:flex;
@@ -91,19 +92,21 @@
       justify-content:center;
       padding: 9px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.04);
-      color: rgba(255,255,255,.90);
-      font-weight: 650;
+      border: 1px solid rgba(236,72,153,.22);
+      background: rgba(236,72,153,.08);
+      color: rgba(31,23,32,.88);
+      font-weight: 750;
       font-size: 13px;
-      transition: transform .15s ease, background .15s ease;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
     }
-    .pill:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); }
+    .pill:hover{
+      transform: translateY(-1px);
+      background: rgba(236,72,153,.12);
+      border-color: rgba(236,72,153,.32);
+    }
 
     /* hero */
-    .hero{
-      padding: 34px 0 14px;
-    }
+    .hero{ padding: 34px 0 14px; }
     .hero-grid{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
@@ -120,8 +123,8 @@
       position:absolute;
       inset:-2px;
       background:
-        radial-gradient(800px 240px at 0% 0%, rgba(124,58,237,.22), transparent 60%),
-        radial-gradient(600px 240px at 90% 10%, rgba(34,197,94,.18), transparent 58%);
+        radial-gradient(820px 260px at 0% 0%, rgba(236,72,153,.18), transparent 60%),
+        radial-gradient(640px 240px at 90% 10%, rgba(251,113,133,.14), transparent 58%);
       pointer-events:none;
     }
     .hero-left > *{ position:relative; }
@@ -134,7 +137,7 @@
       letter-spacing: .18em;
       text-transform: uppercase;
       color: var(--muted);
-      font-weight: 750;
+      font-weight: 850;
       margin-bottom: 10px;
     }
     .kicker span{
@@ -142,7 +145,7 @@
       width: 7px; height: 7px;
       border-radius: 999px;
       background: var(--accent);
-      opacity: .9;
+      opacity: .95;
     }
     h1{
       margin: 0 0 10px;
@@ -168,18 +171,28 @@
       justify-content:center;
       padding: 11px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.06);
-      font-weight: 750;
+      border: 1px solid rgba(236,72,153,.22);
+      background: rgba(236,72,153,.08);
+      font-weight: 850;
       font-size: 14px;
+      color: rgba(31,23,32,.92);
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
     }
-    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.10); }
-    .btn.primary{
-      border-color: rgba(124,58,237,.55);
-      background: linear-gradient(135deg, rgba(124,58,237,.95), rgba(34,197,94,.70));
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(236,72,153,.12);
+      border-color: rgba(236,72,153,.32);
     }
-    .btn.primary:hover{ border-color: rgba(255,255,255,.22); }
+    .btn.primary{
+      border-color: rgba(236,72,153,.35);
+      color: #fff;
+      background: linear-gradient(135deg, rgba(236,72,153,.98), rgba(251,113,133,.92));
+      box-shadow: 0 12px 30px rgba(236,72,153,.18);
+    }
+    .btn.primary:hover{
+      border-color: rgba(236,72,153,.25);
+      filter: brightness(1.02);
+    }
 
     .hero-right{
       padding: 18px;
@@ -189,10 +202,11 @@
     }
     .headshot{
       border-radius: calc(var(--radius) - 6px);
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(236,72,153,.22);
+      background: rgba(255,255,255,.85);
       overflow:hidden;
       aspect-ratio: 4 / 5;
+      box-shadow: 0 18px 40px rgba(17,12,18,.10);
     }
     .headshot img{
       width:100%;
@@ -201,8 +215,8 @@
     }
     .mini{
       border-radius: calc(var(--radius) - 6px);
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(236,72,153,.18);
+      background: rgba(255,255,255,.80);
       padding: 14px;
     }
     .mini h3{
@@ -210,7 +224,7 @@
       font-size: 14px;
       letter-spacing: .02em;
       text-transform: uppercase;
-      color: rgba(255,255,255,.86);
+      color: rgba(31,23,32,.86);
     }
     .mini p{
       margin: 0;
@@ -218,19 +232,19 @@
       color: var(--muted);
     }
 
-    /* about inline (you were using these classes but didn’t have CSS) */
-    .about-inline p{ margin: 0 0 10px; color: rgba(255,255,255,.86); }
+    /* about inline */
+    .about-inline p{ margin: 0 0 10px; color: rgba(31,23,32,.88); }
     .facts-inline{
       margin-top: 12px;
       border-radius: calc(var(--radius) - 6px);
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(236,72,153,.18);
+      background: rgba(236,72,153,.06);
       padding: 14px;
     }
     .facts-inline ul{
       margin: 0;
       padding-left: 18px;
-      color: var(--muted);
+      color: rgba(31,23,32,.70);
       font-size: 14px;
       display:grid;
       gap: 7px;
@@ -261,17 +275,15 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 14px;
     }
-    .video{
-      padding: 14px;
-    }
+    .video{ padding: 14px; }
     .embed{
       position: relative;
       width:100%;
       padding-top: 56.25%;
       border-radius: calc(var(--radius) - 8px);
       overflow:hidden;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(236,72,153,.16);
+      background: rgba(236,72,153,.05);
     }
     .embed iframe{
       position:absolute;
@@ -282,7 +294,7 @@
     }
     .video .caption{
       margin: 10px 2px 0;
-      color: var(--muted);
+      color: rgba(31,23,32,.70);
       font-size: 13px;
     }
 
@@ -292,8 +304,8 @@
       position: relative;
       border-radius: calc(var(--radius) - 8px);
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(236,72,153,.16);
+      background: rgba(236,72,153,.05);
       aspect-ratio: 16 / 9;
     }
     .slides{
@@ -326,18 +338,22 @@
       width: 44px;
       height: 44px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.06);
-      color: rgba(255,255,255,.88);
+      border: 1px solid rgba(236,72,153,.22);
+      background: rgba(236,72,153,.08);
+      color: rgba(31,23,32,.88);
       display:inline-flex;
       align-items:center;
       justify-content:center;
       font-size: 18px;
       cursor:pointer;
-      transition: transform .15s ease, background .15s ease;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
       user-select:none;
     }
-    .icon-btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.10); }
+    .icon-btn:hover{
+      transform: translateY(-1px);
+      background: rgba(236,72,153,.12);
+      border-color: rgba(236,72,153,.32);
+    }
     .dots{
       display:flex;
       gap: 8px;
@@ -349,21 +365,21 @@
     .dot{
       width: 10px; height: 10px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.22);
-      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(236,72,153,.28);
+      background: rgba(236,72,153,.10);
       cursor:pointer;
-      opacity: .85;
+      opacity: .9;
     }
     .dot.active{
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      border-color: rgba(255,255,255,.18);
+      border-color: rgba(236,72,153,.22);
       opacity: 1;
     }
 
     /* footer */
     footer{
       padding: 26px 0 42px;
-      color: rgba(255,255,255,.55);
+      color: rgba(31,23,32,.55);
       font-size: 13px;
     }
 
@@ -420,7 +436,7 @@
             <a class="btn" href="mailto:agent@example.com">Contact</a>
           </div>
 
-          <div style="height:1px;background:rgba(255,255,255,.12);margin:28px 0;"></div>
+          <div style="height:1px;background:rgba(236,72,153,.16);margin:28px 0;"></div>
 
           <div class="about-inline">
             <h2 style="margin:0 0 10px;font-size:20px;">About</h2>
@@ -551,10 +567,7 @@
 
         <div class="slider-controls">
           <button class="icon-btn" id="prev" aria-label="Previous photo">‹</button>
-
-          <!-- Leave dots empty; JS will populate -->
           <div class="dots" id="dots" aria-label="Slide dots"></div>
-
           <button class="icon-btn" id="next" aria-label="Next photo">›</button>
         </div>
       </div>
@@ -570,9 +583,9 @@
       </div>
 
       <div class="card about" style="padding:22px;">
-        <p style="margin:0;color:rgba(255,255,255,.86);">
+        <p style="margin:0;color:rgba(31,23,32,.88);">
           For bookings and inquiries: <a class="pill" href="mailto:agent@example.com">agent@example.com</a>
-          &nbsp; <span style="color:rgba(255,255,255,.45);">•</span> &nbsp;
+          &nbsp; <span style="color:rgba(31,23,32,.35);">•</span> &nbsp;
           <a class="pill" href="#" target="_blank" rel="noopener">IMDb</a>
           <a class="pill" href="#" target="_blank" rel="noopener">Instagram</a>
         </p>
@@ -618,7 +631,6 @@
         goTo(Number(btn.dataset.i));
       });
 
-      // Optional: keyboard support
       window.addEventListener("keydown", (e) => {
         if(e.key === "ArrowLeft") goTo(i - 1);
         if(e.key === "ArrowRight") goTo(i + 1);
