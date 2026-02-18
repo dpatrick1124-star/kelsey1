@@ -290,6 +290,31 @@ body{
       gap: 7px;
     }
 
+/* ✨ BACKGROUND SPARKLES (Behind Content Only) */
+.sparkle-layer{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .6;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,1) 0 2px, transparent 3px),
+    radial-gradient(circle, rgba(255,255,255,.8) 0 1.5px, transparent 2px),
+    radial-gradient(circle, rgba(255,255,255,.6) 0 1px, transparent 2px);
+  background-size:
+    180px 180px,
+    260px 260px,
+    340px 340px;
+  animation: twinkle 10s linear infinite;
+}
+
+@keyframes twinkle{
+  0%   { transform: translateY(0px); opacity:.5; }
+  50%  { transform: translateY(-20px); opacity:.8; }
+  100% { transform: translateY(0px); opacity:.5; }
+}
+
+
     /* section titles */
     .section-title{
       display:flex;
@@ -439,6 +464,8 @@ body{
 </head>
 
 <body>
+<div class="sparkle-layer"></div>
+
   <!-- NAV -->
   <div class="nav">
     <div class="wrap nav-inner">
