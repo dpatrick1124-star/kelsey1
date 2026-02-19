@@ -106,7 +106,7 @@ body{
 
     /* layout helpers */
     .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 18px; }
-    .section{ padding: 54px 0; }
+    .section{ padding: 44px 0; }
 .card{
   background: rgba(255,255,255,.9);
   border: 1px solid rgba(236,72,153,.25);
@@ -114,6 +114,12 @@ body{
   box-shadow: var(--shadow);
   overflow: hidden;
 }
+
+/* Reduce spacing between stacked sections */
+.section + .section{
+  padding-top: 22px;
+}
+
 
 
     /* top nav */
@@ -498,11 +504,55 @@ body{
   animation: twinkle 10s linear infinite;
 }
 
+
 @keyframes twinkle{
   0%   { transform: translateY(0px); opacity:.5; }
   50%  { transform: translateY(-20px); opacity:.8; }
   100% { transform: translateY(0px); opacity:.5; }
 }
+
+/* ✨ Micro sparkle dust layer */
+.micro-sparkles{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .55;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.9) 0 1px, transparent 2px),
+    radial-gradient(circle, rgba(255,255,255,.7) 0 .8px, transparent 2px),
+    radial-gradient(circle, rgba(236,72,153,.4) 0 1px, transparent 2px);
+  background-size:
+    120px 120px,
+    200px 200px,
+    260px 260px;
+  animation: microTwinkle 8s linear infinite;
+}
+
+@keyframes microTwinkle{
+  0%   { transform: translateY(0px); opacity:.45; }
+  50%  { transform: translateY(-12px); opacity:.75; }
+  100% { transform: translateY(0px); opacity:.45; }
+}
+
+/* 🌸 slow light sweep */
+.light-sweep{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .35;
+  background:
+    radial-gradient(600px 400px at 30% 20%, rgba(255,255,255,.5), transparent 70%),
+    radial-gradient(700px 500px at 70% 80%, rgba(236,72,153,.25), transparent 75%);
+  animation: sweepFloat 18s ease-in-out infinite alternate;
+}
+
+@keyframes sweepFloat{
+  0%   { transform: translateX(-40px) translateY(0); }
+  100% { transform: translateX(40px) translateY(-20px); }
+}
+
 
 
     /* section titles */
@@ -577,7 +627,6 @@ body{
 }
 
 .section-title.header-b{
-  border-bottom: 1px solid rgba(236,72,153,.18);
   padding-bottom: 16px;
 }
 
@@ -716,6 +765,10 @@ body{
 <div class="royal-aurora"></div>
 <div class="sparkle-layer"></div>
 <div class="star-flares"></div>
+<div class="micro-sparkles"></div>
+<div class="light-sweep"></div>
+
+
 
 
   <!-- NAV -->
@@ -822,7 +875,7 @@ body{
 
 <div class="section-title header-b">
   <div class="title-pill">Videos</div>
-  <p class="hint">Reel, clips, commercials, auditions, interviews.</p>
+  <p class="hint">Musical theatre performanes</p>
 </div>
 
 
@@ -863,7 +916,7 @@ body{
         <div class="card video">
           <div class="embed">
             <iframe
-              src="https://www.youtube.com/embed/6PCbG1GVlxs?si=XhVGN1lNIOpeshaR"
+              src="https://www.youtube.com/embed/C93lycFRFng?si=Nt57hbRhLf7h_rMm"
               title="YouTube video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen></iframe>
@@ -881,7 +934,7 @@ body{
 
       <div class="section-title header-b">
   <div class="title-pill">Photos</div>
-  <p class="hint">Headshots, on-set stills, lifestyle.</p>
+  <p class="hint">Courtesy Class Act Musical Theatre @ Michael Cochnar</p>
 </div>
 
 
@@ -922,8 +975,7 @@ body{
 
     <div class="section-title header-b">
   <div class="title-pill">Contact</div>
-  <p class="hint">Bookings & inquiries.</p>
-</div>
+  </div>
 
 
       <div class="card about" style="padding:22px;">
