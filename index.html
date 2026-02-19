@@ -257,7 +257,10 @@ body{
 
   /* Put the headshot card directly under the name */
   .hero-right{
-    order: 2; /* comes after hero-left in DOM, but we'll pull it up visually by moving it in HTML (next step) */
+  padding: 18px;
+  display:flex;
+  align-items: stretch;
+
   }
 }
 
@@ -418,14 +421,16 @@ body{
       grid-template-rows: auto auto;
       gap: 12px;
     }
-    .headshot{
-      border-radius: calc(var(--radius) - 6px);
-      border: 1px solid rgba(236,72,153,.22);
-      background: rgba(255,255,255,.85);
-      overflow:hidden;
-      aspect-ratio: 4 / 5;
-      box-shadow: 0 18px 40px rgba(17,12,18,.10);
-    }
+
+   .headshot{
+  border-radius: calc(var(--radius) - 6px);
+  border: 1px solid rgba(236,72,153,.22);
+  background: rgba(255,255,255,.85);
+  overflow:hidden;
+  box-shadow: 0 18px 40px rgba(17,12,18,.10);
+aspect-ratio: 3 / 4.4;
+}
+
     .headshot img{
       width:100%;
       height:100%;
@@ -450,8 +455,6 @@ body{
 }
 
     .mini{
-      border-radius: calc(var(--radius) - 6px);
-      border: 1px solid rgba(236,72,153,.18);
       background: rgba(255,255,255,.80);
       padding: 14px;
     }
@@ -834,10 +837,6 @@ body{
               Kelsey is an 11-year-old who shines on stage with her love for musical theatre, acting, and singing. Full of energy and creativity, she’s always eager to try new things and bring big personality to every performance..
             </p>
 
-            <p>
-              Keep it short and punchy. Casting directors skim.
-            </p>
-
             <div class="facts-inline">
               <ul>
                 <li><strong>Representation:</strong> Parents</li>
@@ -846,6 +845,13 @@ body{
                 <li><strong>Based in:</strong> Los Angeles</li>
               </ul>
             </div>
+<div class="mini quick-info-desktop">
+  <h3>Quick Info</h3>
+  <p>
+    SAG-AFTRA Eligible<br />
+    Los Angeles Local Hire
+  </p>
+</div>
           </div>
         </div>
 
@@ -855,13 +861,6 @@ body{
   <img src="images/kelseyheadshot.png" alt="Headshot" />
 </div>
 
-          <div class="mini">
-            <h3>Quick Info</h3>
-            <p>
-              SAG-AFTRA Eligible<br />
-              Los Angeles Local Hire
-            </p>
-          </div>
         </div>
 
       </div>
