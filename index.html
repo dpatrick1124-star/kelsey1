@@ -75,26 +75,7 @@ body{
   100% { transform: translate3d(0,0,0) scale(1); }
 }
 
-/* ✨ dense fairy dust sparkles (background only) */
-.sparkle-layer{
-  opacity: .45;
-  background-image:
-    radial-gradient(circle, rgba(255,255,255,.95) 0 1.4px, transparent 3px),
-    radial-gradient(circle, rgba(255,255,255,.70) 0 1.1px, transparent 2.6px),
-    radial-gradient(circle, rgba(255,255,255,.55) 0 .9px, transparent 2.4px),
-    radial-gradient(circle, rgba(236,72,153,.35) 0 1px, transparent 2.6px);
-  background-size:
-    140px 140px,
-    220px 220px,
-    320px 320px,
-    260px 260px;
-  animation: sparkleDrift 10s linear infinite;
-}
-@keyframes sparkleDrift{
-  0%   { transform: translateY(0px); }
-  50%  { transform: translateY(-18px); }
-  100% { transform: translateY(0px); }
-}
+
 
 /* 🌟 bigger twinkling flares */
 .star-flares{
@@ -353,7 +334,7 @@ body{
 
     /* 💗 Script name */
     h1{
-      margin: 10 0 10px;
+      margin: 10px 0 10px;
       font-family: "Pacifico", cursive;
       font-weight: 400;
       font-size: clamp(34px, 4.6vw, 54px);
@@ -525,23 +506,76 @@ body{
 
 
     /* section titles */
-    .section-title{
-      display:flex;
-      align-items:baseline;
-      justify-content:space-between;
-      gap: 14px;
-      margin-bottom: 14px;
-    }
-    .section-title h2{
-      margin: 0;
-      font-size: 22px;
-      letter-spacing: -0.01em;
-    }
-    .section-title .hint{
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
+   .section-title.header-b{
+  padding: 6px 0 14px;
+  text-align: left;
+  position: relative;
+}
+
+.section-title.header-b .title-pill{
+  position: relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 15px;
+  letter-spacing: .04em;
+  color: white;
+  background: linear-gradient(135deg, #ec4899, #f9a8d4);
+  box-shadow:
+    0 16px 36px rgba(236,72,153,.22),
+    0 4px 10px rgba(236,72,153,.12);
+  overflow:hidden;
+  transition: transform .25s ease;
+}
+
+/* subtle hover lift */
+.section-title.header-b .title-pill:hover{
+  transform: translateY(-2px);
+}
+
+/* soft halo glow */
+.section-title.header-b .title-pill::before{
+  content:"";
+  position:absolute;
+  inset:-10px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(236,72,153,.25), transparent 70%);
+  z-index:-1;
+  opacity:.6;
+}
+
+/* very soft shimmer */
+.section-title.header-b .title-pill::after{
+  content:"";
+  position:absolute;
+  inset:-40%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,.5),
+    transparent
+  );
+  transform: translateX(-60%);
+  animation: pillShimmer 4.5s ease-in-out infinite;
+  pointer-events:none;
+}
+
+@keyframes pillShimmer{
+  0%   { transform: translateX(-60%); opacity:0; }
+  40%  { opacity:.7; }
+  70%  { transform: translateX(60%); opacity:0; }
+  100% { opacity:0; }
+}
+
+.section-title.header-b .hint{
+  margin: 10px 0 0;
+  color: rgba(31,23,32,.62);
+  font-size: 14px;
+}
+
 
     /* videos */
     .video-grid{
@@ -778,13 +812,15 @@ body{
     </div>
   </header>
 
-  <!-- VIDEOS -->
+   <!-- VIDEOS -->
   <section class="section" id="videos">
     <div class="wrap">
-      <div class="section-title">
-        <h2>Videos</h2>
-        <p class="hint">Reel, clips, commercials, auditions, interviews.</p>
-      </div>
+
+<div class="section-title header-b">
+  <div class="title-pill">Videos</div>
+  <p class="hint">Reel, clips, commercials, auditions, interviews.</p>
+</div>
+
 
       <div class="video-grid">
         <div class="card video">
@@ -831,21 +867,24 @@ body{
           <div class="caption">Lion King - Young Nala (2024)</div>
         </div>
       </div>
+
     </div>
   </section>
 
   <!-- PHOTOS / SLIDER -->
   <section class="section" id="photos">
     <div class="wrap">
-      <div class="section-title">
-        <h2>Photos</h2>
-        <p class="hint">Headshots, on-set stills, lifestyle.</p>
-      </div>
+
+      <div class="section-title header-b">
+  <div class="title-pill">Photos</div>
+  <p class="hint">Headshots, on-set stills, lifestyle.</p>
+</div>
+
 
       <div class="card slider">
         <div class="slider-frame" aria-label="Photo slider">
           <div class="slides" id="slides">
-	    <div class="slide"><img src="images/batb2.jpg" alt="Photo 1"></div>            
+            <div class="slide"><img src="images/batb2.jpg" alt="Photo 1"></div>
             <div class="slide"><img src="images/batb1.jpg" alt="Photo 2"></div>
             <div class="slide"><img src="images/batb3.jpg" alt="Photo 3"></div>
             <div class="slide"><img src="images/batb4.jpg" alt="Photo 4"></div>
@@ -869,27 +908,34 @@ body{
           <button class="icon-btn" id="next" aria-label="Next photo">›</button>
         </div>
       </div>
+
     </div>
   </section>
 
   <!-- CONTACT -->
   <section class="section" id="contact">
     <div class="wrap">
-      <div class="section-title">
-        <h2>Contact</h2>
-      </div>
+
+    <div class="section-title header-b">
+  <div class="title-pill">Contact</div>
+  <p class="hint">Bookings & inquiries.</p>
+</div>
+
 
       <div class="card about" style="padding:22px;">
         <p style="margin:0;color:rgba(31,23,32,.88);">
-          For bookings and inquiries please contact: <a class="pill" href="mailto:dpatrick1124@gmail.com">dpatrick1124@gmail.com</a>
-                 </p>
+          For bookings and inquiries please contact:
+          <a class="pill" href="mailto:dpatrick1124@gmail.com">dpatrick1124@gmail.com</a>
+        </p>
       </div>
 
       <footer class="wrap">
         © <span id="year"></span> Kelsey Harrington. All rights reserved.
       </footer>
+
     </div>
   </section>
+
 
   <script>
     // --- slider (robust) ---
