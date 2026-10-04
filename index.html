@@ -692,6 +692,79 @@ aspect-ratio: 3 / 4.4;
   }
 }
 
+/* Modeling portfolio */
+.modeling-grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.model-card{
+  position:relative;
+  overflow:hidden;
+  border-radius: var(--radius);
+  border: 1px solid rgba(236,72,153,.25);
+  background: rgba(255,255,255,.90);
+  box-shadow: var(--shadow);
+  aspect-ratio: 3 / 4;
+  cursor: zoom-in;
+}
+
+.model-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition: transform .35s ease, filter .35s ease;
+}
+
+.model-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background: linear-gradient(
+    to top,
+    rgba(122,40,78,.18),
+    transparent 45%
+  );
+  opacity:0;
+  transition: opacity .25s ease;
+}
+
+.model-card:hover img{
+  transform:scale(1.045);
+  filter:brightness(1.03);
+}
+
+.model-card:hover::after{
+  opacity:1;
+}
+
+.model-credit{
+  margin: 12px 2px 0;
+  color: rgba(31,23,32,.62);
+  font-size: 13px;
+}
+
+/* Tablet */
+@media (max-width: 920px){
+  .modeling-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Phone */
+@media (max-width: 520px){
+  .modeling-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .model-card{
+    border-radius: calc(var(--radius) - 5px);
+  }
+}
+
     /* slider */
     .slider{ padding: 14px; }
     .slider-frame{
@@ -816,7 +889,8 @@ aspect-ratio: 3 / 4.4;
     <!-- Desktop links -->
     <div class="nav-links" id="navLinks">
       <a class="pill" href="#videos">Videos</a>
-      <a class="pill" href="#photos">Photos</a>
+	<a class="pill" href="#modeling">Modeling</a>
+      <a class="pill" href="#photos">On Stage</a>
       <a class="pill" href="#contact">Contact</a>
     </div>
 
@@ -829,7 +903,8 @@ aspect-ratio: 3 / 4.4;
   <!-- Mobile dropdown panel -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#videos">Videos</a>
-    <a href="#photos">Photos</a>
+<a href="#modeling">Modeling</a>
+    <a href="#photos">On Stage</a>
     <a href="#contact">Contact</a>
   </div>
 </div>
@@ -862,7 +937,7 @@ aspect-ratio: 3 / 4.4;
             <h2 style="margin:0 0 10px;font-size:20px;">About</h2>
 
             <p>
-              Kelsey is an 12-year-old who shines on stage with her love for musical theatre, acting, and singing. Full of energy and creativity, she’s always eager to try new things and bring big personality to every performance.
+              Kelsey is a 12-year-old who shines on stage with her love for musical theatre, acting, and singing. Full of energy and creativity, she’s always eager to try new things and bring big personality to every performance.
             </p>
 
             <div class="facts-inline">
@@ -988,12 +1063,74 @@ aspect-ratio: 3 / 4.4;
     </div>
   </section>
 
+<!-- MODELING -->
+<section class="section" id="modeling">
+  <div class="wrap">
+
+    <div class="section-title header-b">
+      <div class="title-pill">Modeling</div>
+      <p class="hint">Recent studio and lifestyle work</p>
+    </div>
+
+    <div class="modeling-grid">
+
+      <a class="model-card" href="images/modeling-01.jpg" target="_blank" aria-label="Open modeling photo 1">
+        <img
+          src="images/modeling-01.jpg"
+          alt="Kelsey Harrington modeling portrait"
+          loading="lazy">
+      </a>
+
+      <a class="model-card" href="images/modeling-02.jpg" target="_blank" aria-label="Open modeling photo 2">
+        <img
+          src="images/modeling-02.jpg"
+          alt="Kelsey Harrington modeling portrait"
+          loading="lazy">
+      </a>
+
+      <a class="model-card" href="images/modeling-03.jpg" target="_blank" aria-label="Open modeling photo 3">
+        <img
+          src="images/modeling-03.jpg"
+          alt="Kelsey Harrington modeling portrait"
+          loading="lazy">
+      </a>
+
+      <a class="model-card" href="images/modeling-04.jpg" target="_blank" aria-label="Open modeling photo 4">
+        <img
+          src="images/modeling-04.jpg"
+          alt="Kelsey Harrington modeling portrait"
+          loading="lazy">
+      </a>
+
+      <a class="model-card" href="images/modeling-05.jpg" target="_blank" aria-label="Open modeling photo 5">
+        <img
+          src="images/modeling-05.jpg"
+          alt="Kelsey Harrington modeling portrait"
+          loading="lazy">
+      </a>
+
+      <a class="model-card" href="images/modeling-06.jpg" target="_blank" aria-label="Open modeling photo 6">
+        <img
+          src="images/modeling-06.jpg"
+          alt="Kelsey Harrington modeling portrait"
+          loading="lazy">
+      </a>
+
+    </div>
+
+    <p class="model-credit">
+      Photography: <em>Photographer Name</em>
+    </p>
+
+  </div>
+</section>
+
   <!-- PHOTOS / SLIDER -->
   <section class="section" id="photos">
     <div class="wrap">
 
       <div class="section-title header-b">
-  <div class="title-pill">Photos</div>
+  <div class="title-pill">On Stage</div>
   <p class="hint">Courtesy Class Act Musical Theatre @ Michael Cochnar</p>
 </div>
 
