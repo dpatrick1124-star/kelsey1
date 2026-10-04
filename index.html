@@ -664,6 +664,34 @@ aspect-ratio: 3 / 4.4;
       font-size: 13px;
     }
 
+/* Featured performance video */
+.video-featured{
+  margin-bottom: 14px;
+  padding: 14px;
+}
+
+.video-featured .embed{
+  max-width: 100%;
+}
+
+.video-featured .caption{
+  margin: 10px 2px 0;
+  color: rgba(31,23,32,.76);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+/* Make the featured player feel intentionally larger on wider screens */
+@media (min-width: 761px){
+  .video-featured{
+    padding: 18px;
+  }
+
+  .video-featured .caption{
+    font-size: 15px;
+  }
+}
+
     /* slider */
     .slider{ padding: 14px; }
     .slider-frame{
@@ -875,8 +903,18 @@ aspect-ratio: 3 / 4.4;
   <div class="title-pill">Videos</div>
   <p class="hint">Musical theatre performanes</p>
 </div>
-
-
+<!-- Featured / newest performance -->
+<div class="card video-featured">
+  <div class="embed">
+    <iframe
+      src="https://www.youtube.com/embed/l3Qqb_hRvcc?si=i2v4omsesccGjP--"
+      title="Kelsey Harrington as Mrs. Paroo in Music Man"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+  </div>
+  <div class="caption">Music Man - Mrs. Paroo (2026)</div>
+</div>
+<!-- Additional performance videos -->
       <div class="video-grid">
         <div class="card video">
           <div class="embed">
