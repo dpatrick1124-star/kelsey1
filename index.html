@@ -843,6 +843,114 @@ aspect-ratio: 3 / 4.4;
       opacity: 1;
     }
 
+/* Résumé */
+.resume-card{
+  padding: 28px;
+}
+
+.resume-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap: 18px;
+  padding-bottom: 20px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid rgba(236,72,153,.18);
+}
+
+.resume-name{
+  margin:0;
+  font-size: clamp(26px, 4vw, 36px);
+  line-height:1.1;
+  color: var(--text);
+}
+
+.resume-meta{
+  margin: 8px 0 0;
+  color: rgba(31,23,32,.68);
+  font-size: 14px;
+}
+
+.resume-download{
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.resume-details{
+  display:flex;
+  flex-wrap:wrap;
+  gap: 8px 18px;
+  margin: 0 0 24px;
+  padding: 13px 15px;
+  border-radius: calc(var(--radius) - 6px);
+  background: rgba(236,72,153,.06);
+  border: 1px solid rgba(236,72,153,.16);
+  color: rgba(31,23,32,.74);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.resume-section + .resume-section{
+  margin-top: 24px;
+}
+
+.resume-section h3{
+  margin:0 0 10px;
+  font-size: 13px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color: var(--muted);
+}
+
+.resume-row{
+  display:grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(120px, .85fr) minmax(0, 1fr);
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(236,72,153,.10);
+  color: rgba(31,23,32,.82);
+  font-size: 14px;
+}
+
+.resume-row:last-child{
+  border-bottom:0;
+}
+
+.resume-role{
+  font-weight:800;
+  color: rgba(31,23,32,.90);
+}
+
+.resume-skills{
+  margin:0;
+  color: rgba(31,23,32,.76);
+  font-size:14px;
+}
+
+@media (max-width: 650px){
+  .resume-card{
+    padding:20px;
+  }
+
+  .resume-top{
+    display:block;
+  }
+
+  .resume-download{
+    margin-top:14px;
+  }
+
+  .resume-row{
+    grid-template-columns:1fr;
+    gap:2px;
+    padding:10px 0;
+  }
+
+  .resume-row span:not(.resume-role){
+    color:rgba(31,23,32,.62);
+  }
+}
+
     /* footer */
     footer{
       padding: 26px 0 42px;
@@ -891,6 +999,7 @@ aspect-ratio: 3 / 4.4;
       <a class="pill" href="#videos">Videos</a>
 	<a class="pill" href="#modeling">Modeling</a>
       <a class="pill" href="#photos">On Stage</a>
+	<a class="pill" href="#resume">Résumé</a>
       <a class="pill" href="#contact">Contact</a>
     </div>
 
@@ -905,6 +1014,7 @@ aspect-ratio: 3 / 4.4;
     <a href="#videos">Videos</a>
 <a href="#modeling">Modeling</a>
     <a href="#photos">On Stage</a>
+<a href="#resume">Résumé</a>
     <a href="#contact">Contact</a>
   </div>
 </div>
@@ -929,6 +1039,7 @@ aspect-ratio: 3 / 4.4;
             <a class="btn primary" href="#videos">Watch Reels</a>
 <a class="btn" href="#modeling">View Modeling</a>            
 <a class="btn" href="#photos">Theatre Photos</a>
+<a class="btn" href="#resume">View Résumé</a>
             <a class="btn" href="mailto:dpatrick1124@gmail.com">Contact</a>
           </div>
 
@@ -1170,6 +1281,148 @@ aspect-ratio: 3 / 4.4;
     </div>
   </section>
 
+<!-- RÉSUMÉ -->
+<section class="section" id="resume">
+  <div class="wrap">
+
+    <div class="section-title header-b">
+      <div class="title-pill">Résumé</div>
+      <p class="hint">Performance, training, print, and modeling experience</p>
+    </div>
+
+    <div class="card resume-card">
+
+      <div class="resume-top">
+        <div>
+          <h2 class="resume-name">Kelsey Harrington</h2>
+          <p class="resume-meta">
+            Los Angeles, California &nbsp;•&nbsp; Age 12 &nbsp;•&nbsp; Non-Union
+          </p>
+        </div>
+
+        <!-- Create a "files" folder beside your "images" folder, upload the final PDF there,
+             and make sure the filename here exactly matches the uploaded file. -->
+        <a class="btn primary resume-download"
+           href="files/Kelsey-Harrington-Resume.pdf"
+           target="_blank"
+           rel="noopener">
+          Download Résumé (PDF)
+        </a>
+      </div>
+
+      <!-- Public version: keep basic professional details only. -->
+      <div class="resume-details">
+        <span>Height: 4'8"</span>
+        <span>Los Angeles Local Hire</span>
+        <span>Parent Contact Available Upon Request</span>
+      </div>
+
+      <div class="resume-section">
+        <h3>Theatre</h3>
+
+        <div class="resume-row">
+          <span class="resume-role">Frozen</span>
+          <span>Elsa</span>
+          <span>Class Act Musical Theatre</span>
+        </div>
+
+        <div class="resume-row">
+          <span class="resume-role">The Music Man</span>
+          <span>Mrs. Paroo</span>
+          <span>Class Act Musical Theatre</span>
+        </div>
+
+        <div class="resume-row">
+          <span class="resume-role">Seussical</span>
+          <span>Gertrude McFuzz</span>
+          <span>Class Act Musical Theatre</span>
+        </div>
+
+        <div class="resume-row">
+          <span class="resume-role">Descendants</span>
+          <span>Jane</span>
+          <span>Class Act Musical Theatre</span>
+        </div>
+
+        <div class="resume-row">
+          <span class="resume-role">Beauty and the Beast</span>
+          <span>Mrs. Potts</span>
+          <span>Class Act Musical Theatre</span>
+        </div>
+
+        <div class="resume-row">
+          <span class="resume-role">The Lion King</span>
+          <span>Young Nala</span>
+          <span>Class Act Musical Theatre</span>
+        </div>
+      </div>
+
+      <div class="resume-section">
+        <h3>Print / Modeling</h3>
+
+        <div class="resume-row">
+          <span class="resume-role">UCLA BearWear Catalog</span>
+          <span>Child Model</span>
+          <span>UCLA / 2026</span>
+        </div>
+
+        <div class="resume-row">
+          <span class="resume-role">Professional Modeling Portfolio</span>
+          <span>Lifestyle / Fashion Model</span>
+          <span>Don Liebig, ASUCLA / 2026</span>
+        </div>
+      </div>
+
+      <div class="resume-section">
+        <h3>Performance</h3>
+
+        <div class="resume-row">
+          <span class="resume-role">Mozart Music Academy Summer Recital</span>
+          <span>Vocal Performance</span>
+          <span>“My Own Way” — Freya Skye / 2026</span>
+        </div>
+      </div>
+
+      <div class="resume-section">
+        <h3>Training</h3>
+
+        <div class="resume-row">
+          <span class="resume-role">Voice / Singing</span>
+          <span>Mozart Music Academy</span>
+          <span>Teacher: Ms. Mara • Ongoing</span>
+        </div>
+
+        <div class="resume-row">
+          <span class="resume-role">Musical Theatre</span>
+          <span>Class Act Musical Theatre</span>
+          <span>Ongoing</span>
+        </div>
+
+        <div class="resume-row">
+          <span class="resume-role">Dance</span>
+          <span>West Valley Dance Academy</span>
+          <span>Tap / Jazz • Ongoing</span>
+        </div>
+
+        <div class="resume-row">
+          <span class="resume-role">Gymnastics</span>
+          <span>Paramount Elite Gymnastics</span>
+          <span>Level 2 • 2023–2025</span>
+        </div>
+      </div>
+
+      <div class="resume-section">
+        <h3>Special Skills</h3>
+        <p class="resume-skills">
+          Singing • Musical Theatre • Acting • Tap • Jazz • Gymnastics (Level 2) •
+          Comfortable on Camera • Learns Choreography Quickly • Takes Direction Well
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
   <!-- CONTACT -->
   <section class="section" id="contact">
     <div class="wrap">
@@ -1262,3 +1515,5 @@ aspect-ratio: 3 / 4.4;
 
 </body>
 </html>
+
+
